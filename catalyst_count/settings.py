@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap5',
+    'data_uploader'
 ]
 
 MIDDLEWARE = [
@@ -158,3 +159,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_AUTHENTICATION_METHOD = "username"
 ACCOUNT_EMAIL_REQUIRED = "true"
+LOGIN_REDIRECT_URL = '/csv/upload/'
+LOGOUT_REDIRECT_URL = '/accounts/login'
