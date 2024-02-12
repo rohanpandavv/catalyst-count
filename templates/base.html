@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              {% if user.is_authenticated %}
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Upload Data</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Query Builder</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Users</a>
+                        </li>
+                        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                            <li class="">
+                                <a class="nav-link" href="/accounts/logout">Logout</a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+              {% else %}
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/accounts/login">Login</a>
+                    </li>
+                </ul>
+              {% endif %}
+            </div>
+            </div>
+          </nav>
+        {% block content %}
+        {% endblock content %}
+    </body>
+</html>
