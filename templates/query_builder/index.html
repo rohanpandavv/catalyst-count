@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<div class="container my-4">
+    <div class="alert alert-success" role="alert" id="resultAlert" style="display: none;">
+        
+    </div>
+
+    <h2 class="mb-3">Query Builder</h2>
+
+    <div class="row g-3">
+        <div class="col-md">
+            <input type="text" class="form-control" placeholder="Keyword" id="keyword">
+        </div>
+        <div class="col-md">
+            <select class="form-select" id="industry">
+                <option disabled selected value=''>Industry</option>
+                {% for key in industries %}
+                    <option value="{{ key }}">{{ key }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md">
+            <select class="form-select" id="yearFounded">
+                <option disabled selected value=''>Year Founded</option>
+                {% for key in year_founded %}
+                    <option value="{{ key }}">{{ key }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="row g-3 mt-3">
+        <div class="col-md">
+            <select class="form-select" id="city">
+                <option disabled selected value=''>City</option>
+                {% for key in cities %}
+                    <option value="{{ key }}">{{ key }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md">
+            <select class="form-select" id="state">
+                <option disabled selected value = ''>State</option>
+                {% for key in states %}
+                    <option value="{{ key }}">{{ key }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md">
+            <select class="form-select" id="country">
+                <option disabled selected value = ''>Country</option>
+                {% for key in countries %}
+                    <option value="{{ key }}">{{ key }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="row g-3 mt-3">
+        <div class="col-md">
+            <input class="form-control" id="employeesFrom" placeholder="Enter Employees (From) ..."></input>
+        </div>
+        <div class="col-md">
+            <input class="form-control" id="employeesTo" placeholder="Enter Employees (To) ..."></input>
+        </div>
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+        <button class="btn btn-primary me-md-2" type="button" id="queryBtn">Query Data</button>
+        <button class="btn btn-outline-secondary" type="button" id="resetBtn">Reset</button>
+    </div>
+</div>
+
+<script src="{% static 'query_builder/index.js' %}"></script>
+
+{% endblock %}

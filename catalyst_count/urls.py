@@ -20,5 +20,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
-    path('csv/', include('data_uploader.urls'))
+    path('csv/', include('data_uploader.urls')),
+    path('query_builder/', include('query_builder.urls'))
 ]
